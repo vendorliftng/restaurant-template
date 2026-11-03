@@ -18,7 +18,8 @@
         </a>
         <nav class="community-nav" aria-label="Main navigation">
             <a href="dashboard.html" aria-current="page">Dashboard</a>
-            <a href="feed.html">Restaurant feed</a>
+            <a href="restaurants.html">Restaurants</a>
+            <a href="feed.html">Community feed</a>
             <a href="forms.html">Edit profile</a>
         </nav>
     </header>
@@ -27,7 +28,9 @@
         <section class="community-heading">
             <p class="eyebrow">Restaurant owner · demo</p>
             <h1>Welcome, <span data-restaurant-name>The Green Kitchen</span></h1>
-            <p>Share updates with customers and see how your posts are doing.</p>
+            <p data-owner-email></p>
+            <p>Manage your restaurant account, review orders, and see every update you have shared.</p>
+            <a class="community-submit owner-profile-link" data-owner-profile-link href="forms.html">Set up your restaurant page</a>
         </section>
         <p class="demo-notice">Demo mode: posts and activity are saved only in this browser. Sign-in and shared restaurant data are not connected to a server yet.</p>
 
@@ -41,9 +44,9 @@
                         <textarea id="post-caption" name="caption" maxlength="1000" placeholder="What's happening at your restaurant?" required></textarea>
                     </div>
                     <div class="community-field">
-                        <label for="post-photo">Photo URL <span class="optional">(optional)</span></label>
-                        <input id="post-photo" name="photoUrl" type="url" inputmode="url" placeholder="https://example.com/your-food-photo.jpg">
-                        <p class="community-help">Use an image address that starts with http:// or https://.</p>
+                        <label for="post-photo">Upload a photo <span class="optional">(optional)</span></label>
+                        <input id="post-photo" name="photo" type="file" accept="image/png,image/jpeg,image/gif,image/webp">
+                        <p class="community-help">Choose a JPG, PNG, GIF, or WebP image smaller than 2 MB.</p>
                     </div>
                     <p class="community-message" data-dashboard-message role="status" aria-live="polite"></p>
                     <button class="community-submit" type="submit">Publish update</button>
@@ -53,14 +56,23 @@
                     <div class="stat-tile"><strong data-post-count>0</strong><span>Your posts</span></div>
                     <div class="stat-tile"><strong data-like-count>0</strong><span>Likes</span></div>
                     <div class="stat-tile"><strong data-comment-count>0</strong><span>Comments</span></div>
+                    <div class="stat-tile"><strong data-save-count>0</strong><span>Saves</span></div>
+                    <div class="stat-tile"><strong data-follower-count>0</strong><span>Followers</span></div>
                 </div>
             </section>
 
             <aside class="community-card" aria-labelledby="recent-posts-title">
-                <h2 id="recent-posts-title">Your recent updates</h2>
-                <p class="community-card-intro">Your three latest posts and their activity.</p>
+                <h2 id="recent-posts-title">Your feed</h2>
+                <p class="community-card-intro">All updates shared from your restaurant account.</p>
                 <div class="recent-post-list" data-recent-posts></div>
+                <h2 class="dashboard-orders-title">Incoming orders</h2>
+                <p class="community-card-intro">New orders placed from your restaurant page.</p>
+                <div class="recent-post-list" data-recent-orders></div>
+                <h2 class="dashboard-orders-title">Enquiries</h2>
+                <p class="community-card-intro">Messages from customers visiting your page.</p>
+                <div class="recent-post-list" data-owner-enquiries></div>
                 <nav class="quick-links" aria-label="Restaurant shortcuts">
+                    <a href="restaurants.html"><span>Preview your restaurant page</span><span aria-hidden="true">&rarr;</span></a>
                     <a href="feed.html"><span>See the restaurant feed</span><span aria-hidden="true">→</span></a>
                     <a href="forms.html"><span>Update restaurant details</span><span aria-hidden="true">→</span></a>
                     <a href="menu.html"><span>Manage dishes</span><span aria-hidden="true">→</span></a>

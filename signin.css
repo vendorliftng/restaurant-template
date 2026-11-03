@@ -210,7 +210,7 @@ input {
   gap: 6px;
   padding: 11px 6px;
   border: 1px solid rgba(213, 182, 65, 0.32);
-  border-radius: 12px;
+  border-radius: 13px;
   background: linear-gradient(155deg, rgba(13, 39, 78, 0.98), rgba(7, 24, 51, 0.98));
   box-shadow: 0 9px 24px rgba(0, 0, 0, 0.16);
   text-align: center;

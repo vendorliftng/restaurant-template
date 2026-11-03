@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFFFFF">
+    <title>Restaurants | VendorLift</title>
+    <link rel="stylesheet" href="signin.css">
+    <link rel="stylesheet" href="community.css">
+    <link rel="stylesheet" href="restaurants.css">
+    <script src="auth.js?v=directory" defer></script>
+    <script src="restaurants.js" defer></script>
+</head>
+<body data-auth-required="any">
+    <header class="community-header">
+        <a class="brand" href="index.html" aria-label="VendorLift home"><span class="brand-mark" aria-hidden="true">V</span><span>VendorLift</span></a>
+        <nav class="community-nav" aria-label="Main navigation">
+            <a href="feed.html">Community feed</a>
+            <a href="restaurants.html" aria-current="page">Restaurants</a>
+            <button type="button" data-logout>Log out</button>
+        </nav>
+    </header>
+    <main class="community-main directory-main">
+        <section class="community-heading">
+            <p class="eyebrow">Find your next favorite</p>
+            <h1>Restaurants</h1>
+            <p>Explore local menus and place an order directly from a restaurant page.</p>
+        </section>
+        <label class="sr-only" for="restaurant-search">Search restaurants</label>
+        <input class="feed-search directory-search" id="restaurant-search" type="search" placeholder="Search by restaurant, cuisine, or location">
+        <section class="restaurant-grid" data-restaurant-list aria-label="Restaurants"></section>
+    </main>
+    <footer class="site-footer">© <span data-current-year></span> VendorLift</footer>
+</body>
+</html>

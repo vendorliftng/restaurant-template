@@ -3,6 +3,13 @@ document.querySelectorAll('[data-current-year]').forEach((year) => {
 });
 
 const demoAuthKey = "vendorLiftDemoAuth";
+document.querySelectorAll("[data-logout]").forEach((button) => {
+  button.addEventListener("click", () => {
+    sessionStorage.removeItem(demoAuthKey);
+    window.location.assign("index.html");
+  });
+});
+
 const protectedPage = document.body.dataset.authRequired;
 
 if (protectedPage) {
@@ -110,6 +117,7 @@ document.querySelectorAll('[data-auth-form]').forEach((form) => {
       if (invalidField) {
         invalidField.focus();
       }
+      
       return;
     }
 
@@ -127,11 +135,21 @@ document.querySelectorAll('[data-auth-form]').forEach((form) => {
       || emailField?.value.trim()
       || usernameField?.value.trim()
       || (role === "restaurant" ? "Restaurant" : "Customer");
+    const accountEmail = emailField?.value.trim().toLowerCase() || "";
 
     try {
+      if (role === "restaurant") {
+        const previousOwnerEmail = sessionStorage.getItem("vendorLiftRestaurantOwnerEmail");
+        if (previousOwnerEmail && previousOwnerEmail !== accountEmail) {
+          sessionStorage.removeItem("vendorLiftRestaurantDetails");
+          sessionStorage.removeItem("vendorLiftRestaurantId");
+        }
+        sessionStorage.setItem("vendorLiftRestaurantOwnerEmail", accountEmail);
+      }
       sessionStorage.setItem(demoAuthKey, JSON.stringify({
         role,
         displayName,
+        email: accountEmail,
         signedInAt: new Date().toISOString(),
       }));
     } catch (error) {

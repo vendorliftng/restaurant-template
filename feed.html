@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#FFFFFF">
-    <title>Restaurant feed | VendorLift</title>
+    <title>Community feed | VendorLift</title>
     <link rel="stylesheet" href="signin.css">
     <link rel="stylesheet" href="community.css">
-    <script src="auth.js?v=auth-gate" defer></script>
+    <script src="auth.js?v=auth-gate-logout" defer></script>
     <script src="community.js" defer></script>
 </head>
 <body data-auth-required="any">
@@ -17,9 +17,10 @@
             <span>VendorLift</span>
         </a>
         <nav class="community-nav" aria-label="Main navigation">
-            <a href="feed.html" aria-current="page">Restaurant feed</a>
+            <a href="feed.html" aria-current="page">Community feed</a>
+            <a href="restaurants.html">Restaurants</a>
             <a href="dashboard.html">Owner dashboard</a>
-            <a href="index.html">Account types</a>
+            <button type="button" data-logout>Log out</button>
         </nav>
     </header>
 
@@ -27,18 +28,40 @@
         <div class="feed-layout">
             <section class="community-heading">
                 <p class="eyebrow">Good food, shared</p>
-                <h1>Restaurant feed</h1>
-                <p>Explore restaurant updates, share your thoughts, and save places you want to visit.</p>
+                <h1>Community feed</h1>
+                <p>Explore updates from restaurants and people in the community.</p>
             </section>
-            <p class="demo-notice">Demo mode: likes, comments, and saved restaurants stay in this browser. Anyone with the owner dashboard can publish demo posts until real account authentication is connected.</p>
+            <button class="community-submit create-post-trigger" data-open-composer type="button" aria-expanded="false" aria-controls="feed-composer">＋ Create post</button>
+            <p class="demo-notice">Demo mode: posts, likes, comments, and saved profiles stay in this browser.</p>
+
+            <section class="community-card feed-composer-card" id="feed-composer" aria-labelledby="feed-compose-title" hidden>
+                <h2 id="feed-compose-title">Share an update</h2>
+                <p class="community-card-intro">Share something with the community.</p>
+                <form class="post-composer" data-feed-post-form>
+                    <div class="community-field">
+                        <label for="feed-post-caption">Your update</label>
+                        <textarea id="feed-post-caption" name="caption" maxlength="1000" placeholder="What's on your mind?" required></textarea>
+                    </div>
+                    <div class="community-field">
+                        <label for="feed-post-photo">Upload a photo <span class="optional">(optional)</span></label>
+                        <input id="feed-post-photo" name="photo" type="file" accept="image/png,image/jpeg,image/gif,image/webp">
+                        <p class="community-help">Choose a JPG, PNG, GIF, or WebP image smaller than 2 MB.</p>
+                    </div>
+                    <p class="community-message" data-feed-compose-message role="status" aria-live="polite"></p>
+                    <div class="feed-compose-actions">
+                        <button class="community-submit" type="submit">Publish to feed</button>
+                        <button class="post-action" data-close-composer type="button">Cancel</button>
+                    </div>
+                </form>
+            </section>
 
             <div class="feed-toolbar">
-                <label class="sr-only" for="feed-search">Search restaurants and updates</label>
-                <input class="feed-search" id="feed-search" data-feed-search type="search" placeholder="Search restaurants and updates">
-                <button class="post-action" data-saved-filter type="button" aria-pressed="false">Saved restaurants</button>
+                <label class="sr-only" for="feed-search">Search people, restaurants, and updates</label>
+                <input class="feed-search" id="feed-search" data-feed-search type="search" placeholder="Search people, restaurants, and updates">
+                <button class="post-action" data-saved-filter type="button" aria-pressed="false">Saved profiles</button>
             </div>
             <p class="community-message" data-feed-message role="status" aria-live="polite"></p>
-            <section class="feed-list" data-feed-list aria-label="Restaurant updates"></section>
+            <section class="feed-list" data-feed-list aria-label="Community posts"></section>
         </div>
     </main>
 

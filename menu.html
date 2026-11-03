@@ -23,7 +23,7 @@
             <div class="card-heading">
                 <p class="eyebrow">Restaurant profile · Step 2 of 2</p>
                 <h1 id="form-title">Add your dishes</h1>
-                <p>Add a photo, name, short description, and ingredients for each dish you serve.</p>
+                <p>Add a photo, name, price, short description, and ingredients for each dish you serve.</p>
             </div>
 
             <form id="dish-form" action="feed.html" method="GET" enctype="multipart/form-data">
@@ -44,8 +44,8 @@
             <div class="dish-fields">
                 <div class="field field-full">
                     <label data-label="photo">Dish photo</label>
-                    <input data-field="photo" type="file" accept="image/*">
-                    <span class="field-hint">Choose an image file from your device.</span>
+                    <input data-field="photo" type="file" accept="image/png,image/jpeg,image/gif,image/webp">
+                    <span class="field-hint">Choose a JPG, PNG, GIF, or WebP image smaller than 1 MB.</span>
                     <img class="image-preview" alt="" hidden>
                 </div>
                 <div class="field">
@@ -55,6 +55,10 @@
                 <div class="field">
                     <label data-label="description">Brief description</label>
                     <input data-field="description" type="text" placeholder="A short introduction to the dish">
+                </div>
+                <div class="field">
+                    <label data-label="price">Price (₦)</label>
+                    <input data-field="price" type="number" min="0" step="50" placeholder="e.g. 2500" required>
                 </div>
                 <div class="field field-full">
                     <label data-label="ingredients">Ingredients</label>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFFFFF">
+    <title>Restaurant | VendorLift</title>
+    <link rel="stylesheet" href="signin.css">
+    <link rel="stylesheet" href="community.css">
+    <link rel="stylesheet" href="restaurants.css">
+    <script src="auth.js?v=directory" defer></script>
+    <script src="restaurant.js" defer></script>
+</head>
+<body data-auth-required="any">
+    <header class="community-header">
+        <a class="brand" href="index.html" aria-label="VendorLift home"><span class="brand-mark" aria-hidden="true">V</span><span>VendorLift</span></a>
+        <nav class="community-nav" aria-label="Main navigation">
+            <a href="feed.html">Community feed</a>
+            <a href="restaurants.html">Restaurants</a>
+            <button type="button" data-logout>Log out</button>
+        </nav>
+    </header>
+    <main class="community-main restaurant-main" data-restaurant-page>
+        <a class="restaurant-back" href="restaurants.html">← All restaurants</a>
+        <a class="community-submit owner-dashboard-action" data-owner-dashboard-link href="dashboard.html" hidden>Go to your dashboard</a>
+        <section class="restaurant-profile" data-restaurant-profile></section>
+        <section class="restaurant-social community-card" data-restaurant-social hidden>
+            <div class="restaurant-social-actions">
+                <button class="post-action" data-follow-button type="button" aria-pressed="false">Follow restaurant</button>
+                <button class="post-action" data-message-button type="button" aria-expanded="false" aria-controls="restaurant-message-form">Message for an enquiry</button>
+            </div>
+            <form class="enquiry-form" id="restaurant-message-form" data-enquiry-form hidden>
+                <label for="enquiry-message">Your message</label>
+                <textarea id="enquiry-message" name="message" rows="3" maxlength="1000" placeholder="Ask the restaurant a question" required></textarea>
+                <button class="community-submit" type="submit">Send enquiry</button>
+                <p class="community-message" data-enquiry-status role="status" aria-live="polite"></p>
+            </form>
+        </section>
+        <section class="restaurant-posts-section" aria-labelledby="restaurant-posts-title">
+            <div class="restaurant-section-heading"><div><p class="eyebrow">From the restaurant</p><h2 id="restaurant-posts-title">Posts</h2></div></div>
+            <div class="restaurant-post-list" data-restaurant-posts></div>
+        </section>
+        <section class="restaurant-menu-section" aria-labelledby="menu-title">
+            <div class="restaurant-section-heading">
+                <div><p class="eyebrow">Made fresh for you</p><h2 id="menu-title">Menu</h2></div>
+            </div>
+            <section class="restaurant-menu-grid" data-menu-list aria-label="Menu items"></section>
+        </section>
+        <section class="community-card order-cart" aria-labelledby="order-title">
+            <h2 id="order-title">Your order</h2>
+            <div data-cart-items><p class="cart-empty">Your order is empty. Add a meal from the menu.</p></div>
+            <p class="cart-total">Total <strong data-cart-total>₦0</strong></p>
+            <button class="community-submit" data-place-order type="button" disabled>Place order</button>
+            <p class="community-message" data-order-message role="status" aria-live="polite"></p>
+        </section>
+    </main>
+    <footer class="site-footer">© <span data-current-year></span> VendorLift</footer>
+</body>
+</html>

@@ -1,6 +1,6 @@
 const restaurantForm = document.querySelector("#restaurant-form");
 const restaurantDetailsKey = "vendorLiftRestaurantDetails";
-
+// Load saved restaurant details from sessionStorage and populate the form fields
 const savedDetails = sessionStorage.getItem(restaurantDetailsKey);
 
 if (savedDetails) {
