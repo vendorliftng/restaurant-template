@@ -3,7 +3,7 @@ const dishTemplate = document.querySelector("#dish-template");
 const addDishButton = document.querySelector("#add-dish");
 const dishForm = document.querySelector("#dish-form");
 let nextDishId = 1;
-
+// Update the dish controls (legend and remove button state) based on the current number of dishes
 function updateDishControls() {
   const dishCards = dishList.querySelectorAll(".dish-card");
 

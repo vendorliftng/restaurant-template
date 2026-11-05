@@ -10,7 +10,7 @@ function getRestaurants() {
     return [];
   }
 }
-
+// find resturant
 function renderRestaurants() {
   const query = search.value.trim().toLowerCase();
   const restaurants = getRestaurants().filter((restaurant) => {

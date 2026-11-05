@@ -6,7 +6,7 @@ const COMMUNITY_KEYS = {
 
 const starterPosts = [
   {
-    id: "starter-green-kitchen",
+    id: "starter-kitchen",
     restaurantName: "The Green Kitchen",
     location: "Downtown",
     caption: "Fresh herbs, roasted vegetables, and a little sunshine in every bowl. Come try our seasonal lunch special!",

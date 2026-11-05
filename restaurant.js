@@ -15,7 +15,7 @@ const ownerDashboardLink = page.querySelector("[data-owner-dashboard-link]");
 const restaurantPosts = page.querySelector("[data-restaurant-posts]");
 const money = new Intl.NumberFormat("en-NG", { style: "currency", currency: "NGN", maximumFractionDigits: 0 });
 let cart = new Map();
-
+// Read restaurant data from localStorage
 function readRestaurants() {
   try {
     const items = JSON.parse(localStorage.getItem("vendorLiftRestaurants") || "[]");

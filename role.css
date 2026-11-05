@@ -7,7 +7,7 @@
 .role-panel {
   padding: clamp(28px, 6vw, 52px);
   border: 1px solid rgba(213, 182, 65, 0.32);
-  border-radius: 22px;
+  border-radius: 23px;
   background: linear-gradient(155deg, rgba(11, 33, 70, 0.99), rgba(6, 21, 46, 0.99));
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
 }

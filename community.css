@@ -89,7 +89,7 @@ body[data-auth-required]:not(.auth-ready) .community-main {
 
 .demo-notice {
   margin: 0 0 22px;
-  padding: 11px 14px;
+  padding: 11px 13px;
   border: 1px solid rgba(213, 182, 65, 0.45);
   border-radius: 10px;
   background: rgba(213, 182, 65, 0.09);
